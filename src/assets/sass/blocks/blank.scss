@@ -1,0 +1,39 @@
+.blank {
+  position: relative;
+}
+
+.blank__texts {
+  width: 50%;
+  padding-top: 105px;
+
+  p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    color: $color-default-white;
+
+    margin: 45px 0 38px;
+    max-width: 420px;
+
+    @media (max-width: $mobiles-max) {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+
+.blank__blobs {
+
+}
+
+
+.blank__blob {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  left: 0;
+}
