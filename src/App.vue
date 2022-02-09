@@ -1,22 +1,21 @@
 <template>
   <div id="__app">
     <sprite />
-    <div class="wrapper">
-      <main>
-        <notifications group="app-notifications" />
-        <router-view />
-      </main>
-    </div>
+    <Header />
+    <notifications group="app-notifications" />
+    <router-view />
   </div>
 </template>
 
 <script>
+import Header from '@/components/common/Header'
 import Sprite from '@/components/common/Sprite'
 
 export default {
   name: 'App',
   components: {
-    Sprite
+    Sprite,
+    Header
   },
   data() {
     return {}

@@ -1,19 +1,22 @@
 <template>
   <main class="main">
-    <Header />
     <Blank />
+    <Services />
+    <Company />
   </main>
 </template>
 
 <script>
-import Header from '@/components/common/Header'
 import Blank from '@/components/home/Blank'
+import Services from '@/components/home/Services'
+import Company from '@/components/home/Company'
 
 export default {
   name: 'HomePage',
   components: {
-    Header,
-    Blank
+    Blank,
+    Services,
+    Company
   },
   props: {},
   data() {

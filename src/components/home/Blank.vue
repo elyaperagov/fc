@@ -1,18 +1,7 @@
 <template>
   <section id="blank" class="blank">
-    <div class="container">
-      <div class="blank__texts">
-        <h1>Developing Blockchain Solutions</h1>
-        <p>
-          We are a team of full-stack programmers and mathematicians focused on the development of
-          blockchain software solutions.
-        </p>
-
-        <button class="button button--contact">contact us</button>
-      </div>
-    </div>
     <div class="blank__blobs">
-      <div v-if="$root.width > 767" class="blank__blob" v-draggable>
+      <div v-if="$root.width > 767" class="blank__blob blank__blob--green" v-draggable>
         <svg
           width="545"
           height="614"
@@ -45,7 +34,7 @@
           </defs>
         </svg>
       </div>
-      <div v-else class="blank__blob">
+      <div v-else class="blank__blob blank__blob--green">
         <svg
           width="246"
           height="268"
@@ -78,7 +67,7 @@
           </defs>
         </svg>
       </div>
-      <div v-if="$root.width > 767" v-draggable class="blank__blob">
+      <div v-if="$root.width > 767" v-draggable class="blank__blob blank__blob--violet">
         <svg
           width="459"
           height="422"
@@ -111,7 +100,7 @@
           </defs>
         </svg>
       </div>
-      <div v-else class="blank__blob">
+      <div v-else class="blank__blob blank__blob--violet">
         <svg
           width="251"
           height="229"
@@ -143,6 +132,17 @@
             </filter>
           </defs>
         </svg>
+      </div>
+    </div>
+    <div class="container">
+      <div class="blank__texts">
+        <h1>Developing Blockchain Solutions</h1>
+        <p>
+          We are a team of full-stack programmers and mathematicians focused on the development of
+          blockchain software solutions.
+        </p>
+
+        <button class="button button--contact">contact us</button>
       </div>
     </div>
   </section>
