@@ -1,5 +1,6 @@
 .company {
   padding-top: 285px;
+  padding-bottom: 270px;
   min-height: 585px;
   position: relative;
   overflow: hidden;
@@ -7,20 +8,29 @@
   @media (max-width: $mobiles-max) {
     padding-top: 72px;
   }
+
+  @media (max-width: $mobiles) {
+    padding-bottom: 190px;
+  }
 }
 
 .company__background-title {
   position: absolute;
   content: '';
-  top: 70%;
+  top: 53.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 1920px;
+  transition: $transition-settings;
 
   @media (max-width: $mobiles-max) {
     top: 75%;
     max-width: 600px;
+  }
+
+  @media (max-width: $mobiles) {
+    top: 69%;
   }
 
   p {

@@ -47,7 +47,7 @@ export default {
   methods: {
     async checkScroll() {
       const coordsY = document.querySelector('.services__list').getBoundingClientRect().top
-      console.log(coordsY, window.scrollY)
+      // console.log(coordsY, window.scrollY)
       if (coordsY < window.scrollY && this.videoPlayed === false) {
         await this.startVideos()
         this.videoPlayed = true

@@ -3,6 +3,8 @@
     <Blank />
     <Services />
     <Company />
+    <Projects />
+    <Contact />
   </main>
 </template>
 
@@ -10,13 +12,17 @@
 import Blank from '@/components/home/Blank'
 import Services from '@/components/home/Services'
 import Company from '@/components/home/Company'
+import Projects from '@/components/home/Projects'
+import Contact from '@/components/home/Contact'
 
 export default {
   name: 'HomePage',
   components: {
     Blank,
     Services,
-    Company
+    Projects,
+    Company,
+    Contact
   },
   props: {},
   data() {
