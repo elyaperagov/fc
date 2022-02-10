@@ -3,11 +3,24 @@
   overflow: hidden;
   padding-bottom: 300px;
   padding-top: 75px;
+
+  @media (max-width: $mobiles-max) {
+    padding-bottom: 240px;
+  }
 }
 
 .blank__texts {
   width: 50%;
   padding-top: 105px;
+  position: relative;
+
+  @media (max-width: $mobiles-max) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 130px;
+  }
 
   p {
     font-style: normal;
@@ -23,6 +36,21 @@
       font-weight: 300;
       font-size: 14px;
       line-height: 18px;
+      text-align: center;
+      margin: 90px 0 32px;
+    }
+  }
+
+  &:before {
+    @media (max-width: $mobiles-max) {
+      position: absolute;
+      content: '';
+      width: 56%;
+      height: 1px;
+      top: 64%;
+      left: 50%;
+      background-color: $color-default-white;
+      transform: translate(-50%, -50%);
     }
   }
 }

@@ -25,11 +25,33 @@
     line-height: 26px;
     color: $color-default-white;
 
-    border: 1px solid #00ffc5;
+    border: 1px solid $color-light-green;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 178px;
 
     text-align: center;
     padding: 15px 0;
+    transition: $transition-settings;
+
+    @media (max-width: $mobiles-max) {
+      width: 124px;
+
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 12px 0;
+    }
+
+    &:hover {
+      border: none;
+      background: $color-light-green;
+      color: $color-main-black;
+    }
+
+    &:active {
+      border: none;
+      background: #00e5b1;
+      color: $color-main-black;
+    }
   }
 }

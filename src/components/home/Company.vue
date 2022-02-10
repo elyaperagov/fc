@@ -4,7 +4,7 @@
       <p>Formal</p>
       <p>Crypto</p>
     </h3>
-    <div class="company__blob">
+    <div class="company__blob" v-if="$root.width > 767">
       <svg
         width="419"
         height="419"
@@ -33,8 +33,52 @@
       </svg>
     </div>
 
+    <div class="company__blob" v-else>
+      <svg
+        width="148"
+        height="148"
+        viewBox="0 0 148 148"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_f_9_14)">
+          <circle cx="74" cy="74" r="27" fill="#00FFC5" />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_9_14"
+            x="0"
+            y="0"
+            width="148"
+            height="148"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="23.5" result="effect1_foregroundBlur_9_14" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+
     <div class="container">
       <h2>Company</h2>
+      <div class="company__texts">
+        <p>
+          Formal Crypto – company-developer of digital products in the field of blockchain
+          technologies
+        </p>
+        <p>
+          We have been involved in a wide variety of projects, including the creation of DAOs, NFT
+          collections, staking contracts, audits.
+        </p>
+
+        <p>
+          Having extensive experience working with a variety of customers, we can join your project
+          at any stage: from protocol design to turnkey development.
+        </p>
+      </div>
     </div>
   </section>
 </template>
