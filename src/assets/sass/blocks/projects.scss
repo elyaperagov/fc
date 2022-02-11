@@ -237,3 +237,21 @@
     transform: translateY(-20%);
   }
 }
+
+.projects__tab-wrapper {
+  transition: $transition-settings;
+  transform: translateX(-200%);
+  visibility: hidden;
+
+  @media (max-width: $tablets-max) {
+    transform: translate(0);
+    visibility: visible;
+  }
+}
+
+.projects__tab-wrapper.is-active {
+  @media (min-width: $desktops) {
+    transform: translateX(0);
+    visibility: visible;
+  }
+}

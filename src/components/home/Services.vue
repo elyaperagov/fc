@@ -25,62 +25,68 @@ export default {
       items: [
         {
           video: require('@/assets/media/Smart_contracts_video.mp4'),
-          poster: require('@/assets/img/Smart_contracts_poster.png'),
+          poster: require('@/assets/img/Smart.jpg'),
           text: 'Smart contracts'
         },
         {
           video: require('@/assets/media/Blockchain.mp4'),
-          poster: require('@/assets/img/Blockchain_poster.png'),
+          poster: require('@/assets/img/Blockchain.jpg'),
           text: 'Blockchain'
         },
         {
           video: require('@/assets/media/Audit.mp4'),
-          poster: require('@/assets/img/Audit_poster.png'),
+          poster: require('@/assets/img/Audit.jpg'),
           text: 'Audit and verification'
         }
       ]
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.checkScroll)
+    window.addEventListener('scroll', this.startVideos)
   },
   methods: {
-    async checkScroll() {
-      const coordsY = document.querySelector('.services__list').getBoundingClientRect().top
-      // console.log(coordsY, window.scrollY)
-      if (coordsY < window.scrollY && this.videoPlayed === false) {
-        await this.startVideos()
-        this.videoPlayed = true
-      }
-    },
+    // async checkScroll() {
+    //   const coordsY = document.querySelector('.services__list').getBoundingClientRect().top
+
+    //   if (coordsY < window.scrollY && this.videoPlayed === false) {
+    //     await this.startVideos()
+    //   }
+    // },
     startVideos() {
-      const videos = document.getElementsByTagName('video')
+      const div = document.querySelector('.services')
+      const divPosition = div.getBoundingClientRect().top + (window.scrollY - 100)
+      // const videos = document.querySelectorAll('.services__list')
 
-      const fraction = 0.8
+      if (window.scrollY >= divPosition && this.videoPlayed === false) {
+        const videos = document.getElementsByTagName('video')
 
-      for (var i = 0; i < videos.length; i++) {
-        var video = videos[i]
+        // const fraction = 0.8
 
-        const x = video.offsetLeft
-        const y = video.offsetTop
-        const w = video.offsetWidth
-        const h = video.offsetHeight
-        const r = x + w
-        const b = y + h
+        for (var i = 0; i < videos.length; i++) {
+          var video = videos[i]
 
-        const visibleX = Math.max(
-          0,
-          Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset)
-        )
-        const visibleY = Math.max(
-          0,
-          Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset)
-        )
+          // const x = video.offsetLeft
+          // const y = video.offsetTop
+          // const w = video.offsetWidth
+          // const h = video.offsetHeight
+          // const r = x + w
+          // const b = y + h
 
-        const visible = (visibleX * visibleY) / (w * h)
+          // const visibleX = Math.max(
+          //   0,
+          //   Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset)
+          // )
+          // const visibleY = Math.max(
+          //   0,
+          //   Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset)
+          // )
 
-        if (visible > fraction) {
+          // const visible = (visibleX * visibleY) / (w * h)
+
+          // if (visible > fraction) {
           video.play()
+          this.videoPlayed = true
+          // }
         }
       }
     }

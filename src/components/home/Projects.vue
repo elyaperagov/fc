@@ -1,18 +1,18 @@
 <template>
-  <section class="projects">
+  <section class="projects" id="projects">
     <div class="container">
       <h2>Projects</h2>
 
       <div class="projects__inner">
         <div class="projects__tabs">
-          <p
-            v-for="(tab, i) in tabs"
-            :key="i"
-            class="projects__tab"
-            :class="{ 'projects__tab--active': tab.active }"
-            @click="toggle(i)"
-            v-html="tab.text"
-          ></p>
+          <div class="projects__tab-wrapper" v-for="(tab, i) in tabs" :key="i">
+            <p
+              class="projects__tab"
+              :class="{ 'projects__tab--active': tab.active }"
+              @click="toggle(i)"
+              v-html="tab.text"
+            ></p>
+          </div>
         </div>
         <div class="projects__blocks">
           <div v-for="(item, j) in items" v-show="item.active" :key="j" class="projects__block">
@@ -92,6 +92,30 @@ export default {
     }
   },
   methods: {
+    scrollAnimation() {
+      const div = document.getElementById('projects')
+      if (!div) {
+        return
+      }
+      const divPosition = div.getBoundingClientRect().top + (window.scrollY - 1000)
+      const scrollItems = document.querySelectorAll('.projects__tab-wrapper')
+
+      if (window.scrollY >= divPosition) {
+        scrollItems.forEach((el, i) => {
+          setTimeout(function () {
+            const elementPosY = document.documentElement.clientHeight - el.offsetHeight
+            if (
+              el.getBoundingClientRect().top < elementPosY ||
+              el.getBoundingClientRect().top < document.documentElement.clientHeight / 1.5
+            ) {
+              el.classList.add('is-active')
+            } else {
+              el.classList.remove('is-active')
+            }
+          }, 500 + i * 500)
+        })
+      }
+    },
     toggle(i) {
       this.tabs[i].active = !this.tabs[i].active
       this.items[i].active = true
@@ -106,6 +130,11 @@ export default {
         }
       })
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      this.scrollAnimation()
+    })
   }
 }
 </script>

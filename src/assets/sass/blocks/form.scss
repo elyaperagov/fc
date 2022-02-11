@@ -89,7 +89,6 @@
 .form__field {
   position: relative;
   margin-bottom: 6px;
-
 }
 
 .form__inputs {
@@ -231,7 +230,7 @@
 .form__field input:not(:placeholder-shown) + label,
 .form__field textarea:not(:placeholder-shown) + label {
   top: 2px;
-  left: 15px;
+  left: 0;
   font-size: 12px;
 }
 
@@ -244,6 +243,13 @@
 .form__error {
   color: $color-red;
   margin-top: 5px;
+
+  @media (max-width: $mobiles-max) {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 .form__submit {

@@ -160,9 +160,7 @@ export default {
   components: {},
   props: {},
   data() {
-    return {
-      title: 'Coming soon'
-    }
+    return {}
   },
   computed: {},
   mounted() {},
