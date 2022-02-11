@@ -27,7 +27,7 @@
           >
             <feFlood flood-opacity="0" result="BackgroundImageFix" />
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation="64" result="effect1_foregroundBlur_1_1593" />
+            <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_1_1593" />
           </filter>
         </defs>
       </svg>

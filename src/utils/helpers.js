@@ -153,7 +153,7 @@ export default {
         switch (key) {
           case 'name':
             if (form[key].value.length < 1) {
-              error = 'Вы не указали имя'
+              error = 'The field is mandatory'
             }
             break
           case 'in':
@@ -168,14 +168,10 @@ export default {
             }
             break
           case 'email':
-            if (
-              (!form[key].value.includes('@') || !form[key].value.includes('.')) &&
-              form[key].value.length > 0
-            ) {
-              error = 'Вы указали неверный email'
+            if (form[key].value.length < 6) {
+              error = 'The field is mandatory'
             }
             break
-          case 'message':
           case 'text':
             if (form[key].value.length < 10) {
               error = 'error'

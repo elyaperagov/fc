@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 /* eslint-disable prettier-vue/prettier */
 import Vue from 'vue'
 import App from './App.vue'
@@ -7,6 +8,7 @@ import VueMeta from 'vue-meta'
 import Bowser from 'bowser'
 import Cookies from 'js-cookie'
 import SlideUpDown from "vue-slide-up-down";
+import loader from "vue-ui-preloader";
 // import axios from 'axios'
 import smoothscroll from 'smoothscroll-polyfill';
 
@@ -15,10 +17,10 @@ import './assets/sass/app.scss'
 import Helpers from './utils/helpers.js'
 import data from '@/utils/data.js'
 
-
 Vue.component("slide-up-down", SlideUpDown);
 
 // kick off the polyfill!
+Vue.use(loader);
 smoothscroll.polyfill();
 Vue.use(Helpers)
 Vue.use(Helpers)

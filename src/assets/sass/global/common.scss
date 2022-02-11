@@ -488,3 +488,22 @@ table {
 .d-none {
   display: none !important;
 }
+
+#overlay-spinner {
+  position: absolute !important;
+  top: 0;
+  background-color: $color-main-black !important;
+
+  z-index: 2 !important;
+}
+
+.loader-spinner {
+  z-index: 200;
+  height: 230px !important;
+  width: 230px !important;
+
+  @media (max-width: $mobiles-max) {
+    width: 160px !important;
+    height: 160px !important;
+  }
+}

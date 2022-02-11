@@ -39,6 +39,24 @@
   margin: 0 0 32px 0;
   position: relative;
   white-space: nowrap;
+  transition: $transition-settings;
+
+  &:hover {
+    color: #009a77;
+
+    &:before {
+      background-color: #009a77;
+    }
+  }
+
+  &:active,
+  &:focus {
+    color: #86ffe3;
+
+    &:before {
+      background-color: #86ffe3;
+    }
+  }
 
   @media (max-width: $tablets-max) {
     margin: 0 12px 12px 0;
@@ -66,6 +84,8 @@
     background-color: $color-default-white;
     left: -145px;
     top: 17px;
+
+    transition: $transition-settings;
 
     @media (max-width: $tablets-max) {
       display: none;

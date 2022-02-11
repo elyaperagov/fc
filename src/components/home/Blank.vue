@@ -29,7 +29,7 @@
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="72" result="effect1_foregroundBlur_1_1747" />
+              <feGaussianBlur stdDeviation="55" result="effect1_foregroundBlur_1_1747" />
             </filter>
           </defs>
         </svg>
@@ -142,7 +142,9 @@
           blockchain software solutions.
         </p>
 
-        <button class="button button--contact">contact us</button>
+        <button class="button button--contact" @click.prevent="$root.goTo('#contact')">
+          contact us
+        </button>
       </div>
     </div>
   </section>
@@ -164,11 +166,7 @@ export default {
   },
   computed: {},
   mounted() {},
-  methods: {
-    goToContact() {
-      this.$scrollTo('#contact')
-    }
-  }
+  methods: {}
 }
 </script>
 
