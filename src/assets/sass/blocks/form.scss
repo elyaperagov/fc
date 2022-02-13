@@ -192,6 +192,30 @@
     &:invalid {
       padding-top: 15px;
     }
+
+    scrollbar-width: thin;
+    scrollbar-color: $color-default-white;
+
+    /* для Chrome/Edge/Safari */
+    &::-webkit-scrollbar {
+      height: 5px;
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 15px;
+      background-color: $color-default-white;
+      border-radius: 0;
+      border: 1px solid $color-black;
+    }
+
+    @media (max-width: $tablets-max) {
+      overflow-y: initial;
+    }
   }
 
   .form__field {
@@ -242,14 +266,11 @@
 
 .form__error {
   color: $color-red;
-  margin-top: 5px;
-
-  @media (max-width: $mobiles-max) {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 18px;
-  }
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 6px 0;
 }
 
 .form__submit {
@@ -258,6 +279,10 @@
 
 .form__text {
   margin-bottom: 0;
+
+  a {
+    color: $color-light-green;
+  }
 
   @media (max-width: $mobiles-max) {
     font-style: normal;

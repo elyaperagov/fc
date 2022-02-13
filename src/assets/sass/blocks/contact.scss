@@ -98,18 +98,21 @@
     font-weight: 300;
     font-size: 20px;
     line-height: 26px;
-    position: absolute;
-    content: '';
-    width: 438px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: left;
+    margin: 155px 0 10px 0;
+
+    @media (max-width: $tablets-max) {
+      text-align: center;
+    }
+
+    @media (max-width: $tablets-sm) {
+      margin: 25px 0 25px 0;
+    }
 
     @media (max-width: $mobiles-max) {
-      // font-weight: 300;
-      // font-size: 14px;
-      // line-height: 18px;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
     }
   }
 
@@ -124,5 +127,15 @@
     transform: translate(-50%, -50%);
     filter: blur(60px);
     border-radius: 49px;
+
+    @media (max-width: $tablets-max) {
+      width: 400px;
+      height: 35px;
+    }
+
+    @media (max-width: $mobiles) {
+      width: 280px;
+      height: 30px;
+    }
   }
 }

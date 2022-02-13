@@ -16,8 +16,9 @@
           @submit.prevent="sendForm()"
         >
           <p class="form__text">
-            You can send the message directly via Telegram or use contact form so we can get in
-            touch with you
+            You can send the message directly via
+            <a href="https://t.me/formalcrypto" target="blank">Telegram</a> or use contact form so
+            we can get in touch with you
           </p>
           <div class="form__inputs">
             <div class="form__field">
@@ -97,12 +98,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   name: 'Contact',
   data() {
     return {
-      form_maxlength: 300,
+      form_maxlength: 140,
       form_success: false,
       preloader: false,
       form: {
@@ -137,8 +138,8 @@ export default {
       }, 2000)
     },
     async showMessage() {
-      await this.showPreloader()
-
+      // await this.showPreloader()
+      this.form_success = true
       setTimeout(() => {
         for (const key in this.form) {
           if (typeof this.form[key].value !== 'undefined') {
@@ -146,37 +147,37 @@ export default {
           }
         }
         this.form_success = false
-      }, 4000)
+      }, 50000)
     },
     async sendForm() {
       if (!this.$validate(this.form)) {
         return
       }
 
-      const data = new FormData()
-      for (const key in this.form) {
-        console.log(this.form)
-        if (typeof this.form[key].value !== 'undefined') {
-          data.append(key, this.form[key].value)
-        }
-        console.log(data)
-      }
-      const response = await axios.post('/api/request', data).catch(error => {
-        console.log(error)
-        console.log(response)
-      })
+      // const data = new FormData()
+      // for (const key in this.form) {
+      //   console.log(this.form)
+      //   if (typeof this.form[key].value !== 'undefined') {
+      //     data.append(key, this.form[key].value)
+      //   }
+      //   console.log(data)
+      // }
+      // const response = await axios.post('/api/request', data).catch(error => {
+      //   console.log(error)
+      //   console.log(response)
+      // })
 
-      if (response.data.success) {
-        await this.showMessage()
+      // if (response.data.success) {
+      await this.showMessage()
 
-        setTimeout(() => {
-          for (const key in this.form) {
-            if (typeof this.form[key].value !== 'undefined') {
-              this.form[key].value = ''
-            }
-          }
-        }, 3000)
-      }
+      // setTimeout(() => {
+      //   for (const key in this.form) {
+      //     if (typeof this.form[key].value !== 'undefined') {
+      //       this.form[key].value = ''
+      //     }
+      //   }
+      // }, 3000)
+      // }
 
       if (this.goal) {
         this.$root.reachGoal(this.goal)

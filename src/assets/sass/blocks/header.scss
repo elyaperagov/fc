@@ -35,6 +35,14 @@
 }
 
 .header__link {
+  &:hover {
+    color: #009a77;
+  }
+
+  &:active,
+  &:focus {
+    color: #86ffe3;
+  }
   @media (max-width: $mobiles-max) {
     font-style: normal;
     font-weight: normal;
