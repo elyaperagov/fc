@@ -13,7 +13,7 @@
           method="post"
           v-if="!form_success"
           class="form callback__form"
-          @submit.prevent="sendForm()"
+          @submit.prevent="onSubmit()"
         >
           <p class="form__text">
             You can send the message directly via
@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="button button--submit" @click.prevent="sendForm()">
+          <button type="submit" class="button button--submit" @click.prevent="onSubmit()">
             Send
           </button>
           <template v-if="preloader">
@@ -99,6 +99,8 @@
 
 <script>
 // import axios from 'axios'
+import { sendDataToEmail } from '@/api'
+import { showNotification } from '@/utils'
 export default {
   name: 'Contact',
   data() {
@@ -130,59 +132,54 @@ export default {
     }
   },
   methods: {
-    async showPreloader() {
-      this.preloader = true
-      setTimeout(() => {
-        this.preloader = false
-        this.form_success = true
-      }, 2000)
-    },
-    async showMessage() {
-      // await this.showPreloader()
+    showMessage() {
       this.form_success = true
       setTimeout(() => {
-        for (const key in this.form) {
-          if (typeof this.form[key].value !== 'undefined') {
-            this.form[key].value = ''
-          }
-        }
+        // for (const key in this.form) {
+        //   if (typeof this.form[key].value !== 'undefined') {
+        //     this.form[key].value = ''
+        //   }
+        // }
         this.form_success = false
-      }, 50000)
+      }, 4000)
     },
-    async sendForm() {
+
+    onSubmit() {
       if (!this.$validate(this.form)) {
         return
       }
-
-      // const data = new FormData()
-      // for (const key in this.form) {
-      //   console.log(this.form)
-      //   if (typeof this.form[key].value !== 'undefined') {
-      //     data.append(key, this.form[key].value)
-      //   }
-      //   console.log(data)
-      // }
-      // const response = await axios.post('/api/request', data).catch(error => {
-      //   console.log(error)
-      //   console.log(response)
-      // })
-
-      // if (response.data.success) {
-      await this.showMessage()
-
-      // setTimeout(() => {
-      //   for (const key in this.form) {
-      //     if (typeof this.form[key].value !== 'undefined') {
-      //       this.form[key].value = ''
-      //     }
-      //   }
-      // }, 3000)
-      // }
-
-      if (this.goal) {
-        this.$root.reachGoal(this.goal)
+      this.preloader = true
+      const formData = new FormData()
+      for (const key in this.form) {
+        if (typeof this.form[key].value !== 'undefined') {
+          formData.append(key, this.form[key].value)
+        }
       }
-      // }
+      sendDataToEmail(formData)
+        .then(() => {
+          this.preloader = false
+          this.showMessage()
+
+          showNotification(this.$notify, {
+            text: 'Your message was sent successfully, Thanks!',
+            type: 'success'
+          })
+
+          setTimeout(() => {
+            for (const key in this.form) {
+              if (typeof this.form[key].value !== 'undefined') {
+                this.form[key].value = ''
+              }
+            }
+          }, 3000)
+        })
+        .catch(() => {
+          this.preloader = false
+          showNotification(this.$notify, {
+            text: 'An error occurred. Please try again later.',
+            type: 'error'
+          })
+        })
     }
   },
   computed: {}

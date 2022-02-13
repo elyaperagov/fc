@@ -1,5 +1,5 @@
 {
-  "name": "etherdaddy",
+  "name": "fc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,7 +23,6 @@
     "vue-meta": "^2.4.0",
     "vue-notification": "^1.3.20",
     "vue-router": "^3.5.2",
-    "vue-slide-up-down": "^2.0.1",
     "vue-ui-preloader": "^1.2.1"
   },
   "devDependencies": {

@@ -7,7 +7,6 @@ import router from '@/router'
 import VueMeta from 'vue-meta'
 import Bowser from 'bowser'
 import Cookies from 'js-cookie'
-import SlideUpDown from "vue-slide-up-down";
 import loader from "vue-ui-preloader";
 // import axios from 'axios'
 import smoothscroll from 'smoothscroll-polyfill';
@@ -15,9 +14,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import './assets/sass/app.scss'
 
 import Helpers from './utils/helpers.js'
-import data from '@/utils/data.js'
 
-Vue.component("slide-up-down", SlideUpDown);
 
 // kick off the polyfill!
 Vue.use(loader);
@@ -33,7 +30,6 @@ Vue.config.productionTip = false
 window.appVue = new Vue({
   data() {
     return {
-      data: data,
       windowTop: 0,
       width: null,
       height: null,
@@ -42,10 +38,7 @@ window.appVue = new Vue({
       tabletSmallBreakpoint: 1024,
       mobileBreakpoint: 768,
       bowser: null,
-
       authToken: Cookies.get('token'),
-
-
     }
   },
   computed: {
@@ -61,25 +54,12 @@ window.appVue = new Vue({
     isMobile() {
       return this.width <= this.mobileBreakpoint
     },
-    headers() {
-      return {
-        headers: {
-          Authorization: `Bearer ${this.authToken}`
-        }
-      }
-    },
-
   },
-  watch: {
-
-  },
+  watch: {},
   async created() {
     this.width = window.innerWidth
     this.height = window.innerHeight
     this.bowser = Bowser.parse(window.navigator.userAgent)
-
-
-
   },
   mounted() {
     this.addListeners()

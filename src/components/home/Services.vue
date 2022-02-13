@@ -45,48 +45,18 @@ export default {
     window.addEventListener('scroll', this.startVideos)
   },
   methods: {
-    // async checkScroll() {
-    //   const coordsY = document.querySelector('.services__list').getBoundingClientRect().top
-
-    //   if (coordsY < window.scrollY && this.videoPlayed === false) {
-    //     await this.startVideos()
-    //   }
-    // },
     startVideos() {
       const div = document.querySelector('.services')
       const divPosition = div.getBoundingClientRect().top + (window.scrollY - 100)
-      // const videos = document.querySelectorAll('.services__list')
 
       if (window.scrollY >= divPosition && this.videoPlayed === false) {
         const videos = document.getElementsByTagName('video')
 
-        // const fraction = 0.8
-
         for (var i = 0; i < videos.length; i++) {
-          var video = videos[i]
+          const video = videos[i]
 
-          // const x = video.offsetLeft
-          // const y = video.offsetTop
-          // const w = video.offsetWidth
-          // const h = video.offsetHeight
-          // const r = x + w
-          // const b = y + h
-
-          // const visibleX = Math.max(
-          //   0,
-          //   Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset)
-          // )
-          // const visibleY = Math.max(
-          //   0,
-          //   Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset)
-          // )
-
-          // const visible = (visibleX * visibleY) / (w * h)
-
-          // if (visible > fraction) {
           video.play()
           this.videoPlayed = true
-          // }
         }
       }
     }

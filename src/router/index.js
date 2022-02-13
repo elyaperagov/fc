@@ -14,8 +14,8 @@ const router = new VueRouter({
       name: 'Home',
       component: HomePage,
       meta: {
-        title: 'Ether Daddy',
-        description: 'Ether Daddy'
+        title: 'Formal Crypto',
+        description: 'Formal Crypto'
       }
     },
     // {
