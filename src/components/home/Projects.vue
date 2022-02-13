@@ -20,8 +20,10 @@
               <span class="projects__subtitle" v-html="item.subtitle"></span>
               <div class="projects__content" v-html="item.text"></div>
             </div>
-            <div class="projects__img">
-              <img :src="item.img" :alt="item.subtitle" />
+            <div class="projects__img-wrapper">
+              <div class="projects__img">
+                <img :src="item.img" :alt="item.subtitle" />
+              </div>
             </div>
           </div>
         </div>

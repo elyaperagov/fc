@@ -97,7 +97,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 export default {
   name: 'Contact',
   data() {
@@ -155,23 +155,28 @@ export default {
 
       const data = new FormData()
       for (const key in this.form) {
+        console.log(this.form)
         if (typeof this.form[key].value !== 'undefined') {
           data.append(key, this.form[key].value)
         }
+        console.log(data)
       }
-      // const response = await axios.post('/api/request', data).catch(error => {})
+      const response = await axios.post('/api/request', data).catch(error => {
+        console.log(error)
+        console.log(response)
+      })
 
-      // if (response.data.success) {
-      await this.showMessage()
+      if (response.data.success) {
+        await this.showMessage()
 
-      setTimeout(() => {
-        for (const key in this.form) {
-          if (typeof this.form[key].value !== 'undefined') {
-            this.form[key].value = ''
+        setTimeout(() => {
+          for (const key in this.form) {
+            if (typeof this.form[key].value !== 'undefined') {
+              this.form[key].value = ''
+            }
           }
-        }
-      }, 3000)
-      // }
+        }, 3000)
+      }
 
       if (this.goal) {
         this.$root.reachGoal(this.goal)
