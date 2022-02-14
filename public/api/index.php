@@ -19,10 +19,10 @@ Route::add('/send', function () {
   // $result = curl_exec($ch);
   // curl_close($ch);
 
-  $to = "piragof@gmail.com";
-  $subject = "complete form on gipnetix website";
+  $to = "test@gmail.com";
+  $subject = "complete form on formal crypto website";
   $message = "Name: " . $_POST['name'] . "\nE-mail: " . $_POST['email'] . "\nMessage: " . $_POST['message'];
-  $headers = "From: info@gipnetix.com";
+  $headers = "From: test@gmail.com";
 
   mail($to, $subject, $message, $headers);
 }, 'post');
