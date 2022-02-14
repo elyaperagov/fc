@@ -75,9 +75,11 @@
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -119,7 +121,7 @@
   &:before {
     position: absolute;
     content: '';
-    background: $color-light-green;
+    background: $color-green-light;
     width: 438px;
     height: 50px;
     top: 50%;

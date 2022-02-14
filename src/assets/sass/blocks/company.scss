@@ -44,8 +44,7 @@
     line-height: 289px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: $color-light-green;
-    color: #00ffc5;
+    color: $color-green-light;
 
     mix-blend-mode: overlay;
     opacity: 0.52;
@@ -126,13 +125,14 @@
     width: 100%;
     padding: 52px 0;
   }
+
   p {
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
     line-height: 26px;
     margin: 0 0 25px 0;
-    color: $color-default-white;
+    color: $color-white;
 
     @media (max-width: $mobiles-max) {
       font-weight: 300;

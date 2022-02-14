@@ -1,7 +1,7 @@
 <template>
   <section id="blank" class="blank">
     <div class="blank__blobs">
-      <div v-if="$root.width > 767" class="blank__blob blank__blob--green" v-draggable>
+      <div v-if="!$root.isMobile" v-draggable class="blank__blob blank__blob--green">
         <svg
           width="545"
           height="614"
@@ -67,7 +67,7 @@
           </defs>
         </svg>
       </div>
-      <div v-if="$root.width > 767" v-draggable class="blank__blob blank__blob--violet">
+      <div v-if="!$root.isMobile" v-draggable class="blank__blob blank__blob--violet">
         <svg
           width="459"
           height="422"
@@ -152,6 +152,7 @@
 
 <script>
 import { Draggable } from 'draggable-vue-directive'
+
 export default {
   name: 'Blank',
   directives: {

@@ -35,32 +35,32 @@
   font-size: 24px;
   line-height: 31px;
 
-  color: $color-default-white;
+  color: $color-white;
   margin: 0 0 32px 0;
   position: relative;
   white-space: nowrap;
   transition: $transition-settings;
 
   &:hover {
-    color: #009a77;
+    color: $color-green-dark;
 
     &:before {
-      background-color: #009a77;
+      background-color: $color-green-dark;
     }
   }
 
   &:active,
   &:focus {
-    color: #86ffe3;
+    color: $color-green-smooth;
 
     &:before {
-      background-color: #86ffe3;
+      background-color: $color-green-smooth;
     }
   }
 
   @media (max-width: $tablets-max) {
     margin: 0 12px 12px 0;
-    border: 1px solid $color-default-white;
+    border: 1px solid $color-white;
     width: fit-content;
     padding: 10px 15px;
   }
@@ -81,7 +81,7 @@
     content: '';
     width: 40%;
     height: 1px;
-    background-color: $color-default-white;
+    background-color: $color-white;
     left: -145px;
     top: 17px;
 
@@ -93,10 +93,10 @@
   }
 
   &--active {
-    color: $color-light-green;
+    color: $color-green-light;
 
     &:before {
-      background-color: $color-light-green;
+      background-color: $color-green-light;
     }
   }
 
@@ -122,9 +122,11 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.4);
   }
+
   100% {
     transform: scale(1);
   }
@@ -147,7 +149,7 @@
   line-height: 31px;
   display: block;
   margin-bottom: 15px;
-  color: $color-default-white;
+  color: $color-white;
 
   @media (max-width: $mobiles-max) {
     font-size: 16px;
@@ -164,7 +166,7 @@
     font-size: 20px;
     line-height: 26px;
 
-    color: $color-default-white;
+    color: $color-white;
     margin: 0 0 28px 0;
 
     &:last-of-type {
@@ -212,7 +214,7 @@
 
     bottom: 0;
     right: 26%;
-    background-color: $color-light-green;
+    background-color: $color-green-light;
     filter: blur(30px);
     animation: fadeIn 10s ease infinite;
 
@@ -231,13 +233,9 @@
 .projects__img {
   position: relative;
   animation: updown 10s ease infinite;
-
   height: 250px;
-  // margin-top: -25px;
 
   @media (max-width: $mobiles) {
-    // max-width: 280px;
-
     width: 135px;
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="company" id="company">
+  <section id="company" class="company">
     <h3 class="company__background-title">
       <p>Formal</p>
       <p>Crypto</p>
@@ -10,7 +10,7 @@
       <p>Crypto</p>
     </h3>
     <div class="company__blobs">
-      <div class="company__blob" v-if="$root.width > 767" v-draggable>
+      <div v-if="!$root.isMobile" v-draggable class="company__blob">
         <svg
           width="419"
           height="419"
@@ -39,7 +39,7 @@
         </svg>
       </div>
 
-      <div class="company__blob" v-else>
+      <div v-else class="company__blob">
         <svg
           width="148"
           height="148"
@@ -92,6 +92,7 @@
 
 <script>
 import { Draggable } from 'draggable-vue-directive'
+
 export default {
   name: 'Company',
   directives: {
@@ -102,31 +103,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@for $i from 1 through 2 {
-  $a: #{($i + 1) * 90};
-  $b: #{($i + 1) * 90+360};
+$i: 1;
+$a: #{($i + 1) * 90};
+$b: #{($i + 1) * 90+360};
 
-  svg:nth-child(#{$i}) {
-    animation: move#{$i} #{($i) + 14}s infinite linear;
-    cursor: grab;
+svg:nth-child(#{$i}) {
+  animation: move#{$i} #{($i) + 14}s infinite linear;
+  cursor: grab;
+}
+
+@keyframes move#{$i} {
+  from {
+    transform: rotate(#{$a}deg) translate(#{(($i + 1)) * 75}px, 0.1px) rotate(-#{$a}deg);
   }
-
+  to {
+    transform: rotate(#{$b}deg) translate(#{(($i + 1)) * 75}px, 0.1px) rotate(-#{$b}deg);
+  }
+}
+@media (max-width: 767px) {
   @keyframes move#{$i} {
     from {
-      transform: rotate(#{$a}deg) translate(#{(($i + 1)) * 75}px, 0.1px) rotate(-#{$a}deg);
+      transform: rotate(#{$a}deg) translate(#{(($i + 1)) * 25}px, 0.1px) rotate(-#{$a}deg);
     }
     to {
-      transform: rotate(#{$b}deg) translate(#{(($i + 1)) * 75}px, 0.1px) rotate(-#{$b}deg);
-    }
-  }
-  @media (max-width: 767px) {
-    @keyframes move#{$i} {
-      from {
-        transform: rotate(#{$a}deg) translate(#{(($i + 1)) * 25}px, 0.1px) rotate(-#{$a}deg);
-      }
-      to {
-        transform: rotate(#{$b}deg) translate(#{(($i + 1)) * 25}px, 0.1px) rotate(-#{$b}deg);
-      }
+      transform: rotate(#{$b}deg) translate(#{(($i + 1)) * 25}px, 0.1px) rotate(-#{$b}deg);
     }
   }
 }

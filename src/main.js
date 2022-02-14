@@ -6,15 +6,11 @@ import Notifications from 'vue-notification'
 import router from '@/router'
 import VueMeta from 'vue-meta'
 import Bowser from 'bowser'
-import Cookies from 'js-cookie'
 import loader from "vue-ui-preloader";
-// import axios from 'axios'
 import smoothscroll from 'smoothscroll-polyfill';
-
-import './assets/sass/app.scss'
-
 import Helpers from './utils/helpers.js'
 
+import './assets/sass/app.scss'
 
 // kick off the polyfill!
 Vue.use(loader);
@@ -38,7 +34,6 @@ window.appVue = new Vue({
       tabletSmallBreakpoint: 1024,
       mobileBreakpoint: 768,
       bowser: null,
-      authToken: Cookies.get('token'),
     }
   },
   computed: {
@@ -68,9 +63,6 @@ window.appVue = new Vue({
     addListeners() {
       window.addEventListener('scroll', this.onScroll)
       window.addEventListener('resize', this.onResize)
-      document.addEventListener('gesturestart', function (e) {
-        e.preventDefault()
-      })
     },
     onScroll(e) {
       this.windowTop = window.pageYOffset
@@ -80,8 +72,6 @@ window.appVue = new Vue({
       this.height = window.innerHeight
       document.body.classList.remove('scroll-off')
     },
-
-
     async goTo(link) {
       if (!this.$scrollTo(link)) {
         try {

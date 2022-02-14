@@ -2,7 +2,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '@/views/HomePage'
-// import ErrorPage from '@/views/ErrorPage'
 
 Vue.use(VueRouter)
 
@@ -10,23 +9,14 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [{
-      path: '/',
-      name: 'Home',
-      component: HomePage,
-      meta: {
-        title: 'Formal Crypto',
-        description: 'Formal Crypto'
-      }
-    },
-    // {
-    //   path: '/*',
-    //   name: '404',
-    //   component: ErrorPage,
-    //   meta: {
-    //     title: '404'
-    //   }
-    // }
-  ],
+    path: '/',
+    name: 'Home',
+    component: HomePage,
+    meta: {
+      title: 'Formal Crypto',
+      description: 'Formal Crypto'
+    }
+  }],
   scrollBehavior() {
     return {
       x: 0,

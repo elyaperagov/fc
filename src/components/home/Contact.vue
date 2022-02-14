@@ -1,17 +1,15 @@
 <template>
-  <section class="contact" id="contact">
+  <section id="contact" class="contact">
     <div class="container">
       <h2>Contact Us</h2>
       <div class="contact__inner">
         <div class="contact__picture">
-          <img src="@/assets/img/map.png" alt="" />
+          <img src="@/assets/img/map.png" alt="map" />
         </div>
-
         <form
+          v-if="!formSuccess"
           id="form"
-          action=""
-          method="post"
-          v-if="!form_success"
+          action="#"
           class="form callback__form"
           @submit.prevent="onSubmit()"
         >
@@ -23,14 +21,14 @@
           <div class="form__inputs">
             <div class="form__field">
               <input
+                id="name"
+                v-model="form.name.value"
                 class="form__input"
                 :class="{ error: form.name.error }"
-                id="name"
                 name="email"
                 :type="form.name.type"
                 size="20"
-                v-model="form.name.value"
-                placeholder=" "
+                placeholder=""
               />
               <label class="form__label" for="name">{{ form.name.label }}</label>
               <template v-if="form.name.error">
@@ -39,14 +37,14 @@
             </div>
             <div class="form__field">
               <input
+                id="email"
+                v-model="form.email.value"
                 class="form__input"
                 :class="{ error: form.email.error }"
-                id="email"
                 name="email"
                 :type="form.email.type"
                 size="20"
-                v-model="form.email.value"
-                placeholder=" "
+                placeholder=""
               />
               <label class="form__label" for="email">{{ form.email.label }}</label>
               <template v-if="form.email.error">
@@ -56,15 +54,15 @@
             <div class="form__message">
               <div class="form__field">
                 <textarea
+                  id="message"
+                  v-model="form.message.value"
                   class="form__message-textarea"
                   :class="{ error: form.message.error }"
-                  id="message"
                   name="message"
                   :type="form.message.type"
                   size="20"
-                  v-model="form.message.value"
-                  placeholder=" "
-                  :maxlength="form_maxlength"
+                  placeholder=""
+                  :maxlength="maxLength"
                 ></textarea>
                 <label class="form__label" for="message">{{ form.message.label }}</label>
               </div>
@@ -89,7 +87,7 @@
           </template>
         </form>
 
-        <div class="contact__success" v-if="form_success">
+        <div v-if="formSuccess" class="contact__success">
           <p>Thanks for contacting us! We will contact with you as soon as possible.</p>
         </div>
       </div>
@@ -98,16 +96,15 @@
 </template>
 
 <script>
-// import axios from 'axios'
-import { sendDataToEmail } from '@/api'
-import { showNotification } from '@/utils'
+import { sendMail } from '@/api'
+
 export default {
   name: 'Contact',
   data() {
     return {
-      form_maxlength: 140,
-      form_success: false,
       preloader: false,
+      maxLength: 140,
+      formSuccess: false,
       form: {
         name: {
           value: '',
@@ -121,7 +118,6 @@ export default {
           type: 'text',
           error: ''
         },
-
         message: {
           value: '',
           label: 'Comment',
@@ -131,59 +127,53 @@ export default {
       }
     }
   },
+  computed: {},
   methods: {
     showMessage() {
-      this.form_success = true
+      this.formSuccess = true
       setTimeout(() => {
-        // for (const key in this.form) {
-        //   if (typeof this.form[key].value !== 'undefined') {
-        //     this.form[key].value = ''
-        //   }
-        // }
-        this.form_success = false
+        this.formSuccess = false
       }, 4000)
     },
-
-    onSubmit() {
+    async onSubmit() {
       if (!this.$validate(this.form)) {
         return
       }
       this.preloader = true
+
       const formData = new FormData()
       for (const key in this.form) {
         if (typeof this.form[key].value !== 'undefined') {
           formData.append(key, this.form[key].value)
         }
       }
-      sendDataToEmail(formData)
-        .then(() => {
-          this.preloader = false
-          this.showMessage()
 
-          showNotification(this.$notify, {
-            text: 'Your message was sent successfully, Thanks!',
-            type: 'success'
-          })
+      const response = await sendMail(formData)
 
-          setTimeout(() => {
-            for (const key in this.form) {
-              if (typeof this.form[key].value !== 'undefined') {
-                this.form[key].value = ''
-              }
+      if (response.status === 200) {
+        this.showMessage()
+
+        this.$showNotification(this.$notify, {
+          text: 'Your message was sent successfully, Thanks!',
+          type: 'success'
+        })
+
+        setTimeout(() => {
+          for (const key in this.form) {
+            if (typeof this.form[key].value !== 'undefined') {
+              this.form[key].value = ''
             }
-          }, 3000)
+          }
+        }, 3000)
+      } else {
+        this.$showNotification(this.$notify, {
+          text: 'An error occurred. Please try again later.',
+          type: 'error'
         })
-        .catch(() => {
-          this.preloader = false
-          showNotification(this.$notify, {
-            text: 'An error occurred. Please try again later.',
-            type: 'error'
-          })
-        })
+      }
+
+      this.preloader = false
     }
-  },
-  computed: {}
+  }
 }
 </script>
-
-<style></style>

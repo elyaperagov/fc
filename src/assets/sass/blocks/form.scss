@@ -109,8 +109,8 @@
   border-top: 1px solid transparent;
   border-right: 1px solid transparent;
   border-left: 1px solid transparent;
-  border-bottom: 2px solid #ffffff;
-  background-color: $color-main-black;
+  border-bottom: 2px solid $color-white;
+  background-color: $color-black-main;
   transition: all $transition-settings;
 
   font-style: normal;
@@ -118,7 +118,7 @@
   font-size: 20px;
   line-height: 26px;
 
-  color: #616161 !important;
+  color: $color-grey !important;
   transition: $transition-settings;
 
   @media (max-width: $mobiles-max) {
@@ -129,9 +129,6 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 18px;
-  }
-
-  &:hover {
   }
 
   &:focus {
@@ -162,14 +159,14 @@
     opacity: 0.5 !important;
     resize: none;
     transition: all $transition-settings;
-    background-color: $color-main-black;
+    background-color: $color-black-main;
 
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
     line-height: 26px;
 
-    color: #616161 !important;
+    color: $color-grey !important;
 
     @media (max-width: $mobiles-max) {
       height: 45px;
@@ -178,9 +175,6 @@
       font-weight: 300;
       font-size: 14px;
       line-height: 18px;
-    }
-
-    &:hover {
     }
 
     &:focus {
@@ -194,7 +188,7 @@
     }
 
     scrollbar-width: thin;
-    scrollbar-color: $color-default-white;
+    scrollbar-color: $color-white;
 
     /* для Chrome/Edge/Safari */
     &::-webkit-scrollbar {
@@ -208,7 +202,7 @@
 
     &::-webkit-scrollbar-thumb {
       height: 15px;
-      background-color: $color-default-white;
+      background-color: $color-white;
       border-radius: 0;
       border: 1px solid $color-black;
     }
@@ -222,6 +216,7 @@
     @media (max-width: $mobiles-max) {
       height: 55px;
     }
+
     @media (max-width: $mobiles-max) {
       height: 45px;
     }
@@ -238,7 +233,7 @@
   font-size: 20px;
   line-height: 26px;
 
-  color: #616161;
+  color: $color-grey;
   transition: $transition-settings;
 
   @media (max-width: $mobiles-max) {
@@ -249,10 +244,10 @@
   }
 }
 
-.form__field input:focus + label,
-.form__field textarea:focus + label,
-.form__field input:not(:placeholder-shown) + label,
-.form__field textarea:not(:placeholder-shown) + label {
+.form__field input:focus+label,
+.form__field textarea:focus+label,
+.form__field input:not(:placeholder-shown)+label,
+.form__field textarea:not(:placeholder-shown)+label {
   top: 2px;
   left: 0;
   font-size: 12px;
@@ -281,7 +276,7 @@
   margin-bottom: 0;
 
   a {
-    color: $color-light-green;
+    color: $color-green-light;
   }
 
   @media (max-width: $mobiles-max) {

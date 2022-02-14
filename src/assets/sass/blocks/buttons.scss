@@ -23,9 +23,9 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
-    color: $color-default-white;
+    color: $color-white;
 
-    border: 1px solid $color-light-green;
+    border: 1px solid $color-green-light;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 178px;
 
@@ -43,13 +43,13 @@
     }
 
     &:hover {
-      background: $color-light-green;
-      color: $color-main-black;
+      background: $color-green-light;
+      color: $color-black-main;
     }
 
     &:active {
-      background: #00e5b1;
-      color: $color-main-black;
+      background: $color-green-active;
+      color: $color-black-main;
     }
   }
 
@@ -60,9 +60,9 @@
     font-size: 20px;
     line-height: 26px;
 
-    color: $color-default-white;
+    color: $color-white;
 
-    border: 1px solid $color-light-green;
+    border: 1px solid $color-green-light;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 125px;
 
@@ -81,13 +81,13 @@
     }
 
     &:hover {
-      background: $color-light-green;
-      color: $color-main-black;
+      background: $color-green-light;
+      color: $color-black-main;
     }
 
     &:active {
-      background: #00e5b1;
-      color: $color-main-black;
+      background: $color-green-active;
+      color: $color-black-main;
     }
   }
 }

@@ -36,19 +36,20 @@
 
 .header__link {
   &:hover {
-    color: #009a77;
+    color: $color-green-dark;
   }
 
   &:active,
   &:focus {
-    color: #86ffe3;
+    color: $color-green-smooth;
   }
+
   @media (max-width: $mobiles-max) {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-    color: $color-default-white;
+    color: $color-white;
   }
 }

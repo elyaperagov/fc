@@ -6060,11 +6060,6 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "^1.2.5"
 
-mouse-event-offset@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/mouse-event-offset/-/mouse-event-offset-3.0.2.tgz#dfd86a6e248c6ba8cad53b905d5037a2063e9984"
-  integrity sha1-39hqbiSMa6jK1TuQXVA3ogY+mYQ=
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -8962,13 +8957,6 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
-
-v-draggable@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/v-draggable/-/v-draggable-0.0.3.tgz#eb60ff3bf29b620a129d9f00c866fa9114c0910f"
-  integrity sha512-W6IxqJ1YBgZyeRyd+VkzcWAx/TOuB0YodafHK1hKcORq4Agp1Cb4Iw8Bp6XS0U+0ZP55fV0lvbbJnm2zbHGM6g==
-  dependencies:
-    mouse-event-offset "^3.0.2"
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"

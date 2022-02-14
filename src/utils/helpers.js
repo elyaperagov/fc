@@ -1,5 +1,11 @@
 export default {
   install(Vue, options) {
+    Vue.prototype.$showNotification = ($notifyInstance, options) => {
+      return $notifyInstance({
+        group: 'formNotifications',
+        ...options
+      })
+    }
     Vue.prototype.$eventBus = new Vue()
     Vue.prototype.$cloneObj = function (object) {
       return JSON.parse(JSON.stringify(object))
@@ -159,12 +165,12 @@ export default {
           case 'in':
           case 'out':
             if (form[key].value.length < 1) {
-              error = 'Выберите дату'
+              error = 'The field is mandatory'
             }
             break
           case 'phone':
             if (form[key].value.length < 18) {
-              error = 'Неверный номер телефона'
+              error = 'The field is mandatory'
             }
             break
           case 'email':
