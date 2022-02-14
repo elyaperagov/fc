@@ -5,6 +5,11 @@
   position: relative;
   overflow: hidden;
 
+  @media (max-width: $tablets-max) {
+    padding-top: 200px;
+    padding-bottom: 170px;
+  }
+
   @media (max-width: $mobiles-max) {
     padding-top: 72px;
   }

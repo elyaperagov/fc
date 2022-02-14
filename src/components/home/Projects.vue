@@ -102,9 +102,9 @@ export default {
           }, (i + 1) * 500)
         })
       } else {
-        this.tabs.forEach((tab, i) => {
-          tab.scrolled = false
-        })
+        // this.tabs.forEach((tab, i) => {
+        //   tab.scrolled = false
+        // })
       }
     }
   },
