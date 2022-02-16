@@ -25,6 +25,10 @@
   h2 {
     position: relative;
 
+    @media (max-width: $mobiles-max) {
+      max-width: 360px;
+    }
+
     &:before {
       @media (max-width: $mobiles-max) {
         position: absolute;
