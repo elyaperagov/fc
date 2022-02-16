@@ -1,58 +1,3 @@
-// Placeholder
-
-[placeholder] {
-  transition: all $transition-settings;
-}
-
-:-webkit-input-placeholder {
-  -webkit-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-:-moz-placeholder {
-  -moz-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-::-moz-placeholder {
-  -moz-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-:-ms-input-placeholder {
-  -ms-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-:focus[placeholder] {
-  outline: none;
-  transition: all $transition-settings;
-}
-
-:focus::-webkit-input-placeholder {
-  outline: none;
-  -webkit-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-:focus::-moz-placeholder {
-  outline: none;
-  -moz-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-:focus:-moz-placeholder {
-  outline: none;
-  -moz-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
-:focus:-ms-input-placeholder {
-  outline: none;
-  -ms-transition: all $transition-settings;
-  transition: all $transition-settings;
-}
-
 .form {
   width: 100%;
   display: flex;
@@ -155,11 +100,16 @@
   &-textarea {
     width: 100%;
     padding: 0 15px;
-    border: 1px solid transparent;
     opacity: 0.5 !important;
     resize: none;
     transition: all $transition-settings;
     background-color: $color-black-main;
+    height: 55px;
+
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 2px solid #fff;
 
     font-style: normal;
     font-weight: 300;
@@ -244,10 +194,10 @@
   }
 }
 
-.form__field input:focus+label,
-.form__field textarea:focus+label,
-.form__field input:not(:placeholder-shown)+label,
-.form__field textarea:not(:placeholder-shown)+label {
+.form__field input:focus + label,
+.form__field textarea:focus + label,
+.form__field input:not(:placeholder-shown) + label,
+.form__field textarea:not(:placeholder-shown) + label {
   top: 2px;
   left: 0;
   font-size: 12px;

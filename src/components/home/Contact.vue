@@ -1,7 +1,7 @@
 <template>
   <section id="contact" class="contact">
     <div class="container">
-      <h2>Contact Us</h2>
+      <h2 tabindex="8">Contact Us</h2>
       <div class="contact__inner">
         <div class="contact__picture">
           <img src="@/assets/img/map.png" alt="map" />
@@ -28,7 +28,7 @@
                 name="email"
                 :type="form.name.type"
                 size="20"
-                placeholder=""
+                placeholder=" "
               />
               <label class="form__label" for="name">{{ form.name.label }}</label>
               <template v-if="form.name.error">
@@ -44,7 +44,7 @@
                 name="email"
                 :type="form.email.type"
                 size="20"
-                placeholder=""
+                placeholder=" "
               />
               <label class="form__label" for="email">{{ form.email.label }}</label>
               <template v-if="form.email.error">
@@ -61,7 +61,7 @@
                   name="message"
                   :type="form.message.type"
                   size="20"
-                  placeholder=""
+                  placeholder=" "
                   :maxlength="maxLength"
                 ></textarea>
                 <label class="form__label" for="message">{{ form.message.label }}</label>

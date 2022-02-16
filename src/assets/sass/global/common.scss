@@ -82,7 +82,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  outline: none !important;
+  // outline: none !important;
 }
 
 body {
@@ -116,8 +116,8 @@ body {
     color: $color-white;
     font-style: normal;
     font-weight: normal;
-    font-size: 72px;
-    line-height: 83px;
+    // font-size: 72px;
+    // line-height: 83px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
 
@@ -137,8 +137,8 @@ body {
     color: $color-white;
     font-style: normal;
     font-weight: normal;
-    font-size: 72px;
-    line-height: 83px;
+    font-size: 56px;
+    line-height: 65px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
 
@@ -154,26 +154,6 @@ body {
   }
 
   overflow-y: scroll;
-
-  scrollbar-width: thin;
-  scrollbar-color: $color-white;
-
-  /* для Chrome/Edge/Safari */
-  &::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $color-black;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    height: 180px;
-    background-color: $color-white;
-    border-radius: 0;
-    border: 1px solid $color-black;
-  }
 
   @media (max-width: $tablets-max) {
     overflow-y: initial;
@@ -192,7 +172,7 @@ button {
   color: $color-white;
 
   &:focus {
-    outline: none !important;
+    // outline: none !important;
   }
 }
 
@@ -218,10 +198,12 @@ h1 {
 }
 
 h2 {
-  font-size: 44px;
   font-style: normal;
   font-weight: 400;
-  line-height: 66px;
+
+  font-size: 56px;
+  line-height: 65px;
+
   letter-spacing: 0em;
   text-align: left;
 
@@ -442,4 +424,60 @@ table {
     width: 160px !important;
     height: 160px !important;
   }
+}
+
+
+// Placeholder
+
+[placeholder] {
+  transition: all $transition-settings;
+}
+
+:-webkit-input-placeholder {
+  -webkit-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+:-moz-placeholder {
+  -moz-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+::-moz-placeholder {
+  -moz-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+:-ms-input-placeholder {
+  -ms-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+:focus[placeholder] {
+  outline: none;
+  transition: all $transition-settings;
+}
+
+:focus::-webkit-input-placeholder {
+  outline: none;
+  -webkit-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+:focus::-moz-placeholder {
+  outline: none;
+  -moz-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+:focus:-moz-placeholder {
+  outline: none;
+  -moz-transition: all $transition-settings;
+  transition: all $transition-settings;
+}
+
+:focus:-ms-input-placeholder {
+  outline: none;
+  -ms-transition: all $transition-settings;
+  transition: all $transition-settings;
 }

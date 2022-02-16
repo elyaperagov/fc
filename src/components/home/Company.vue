@@ -5,10 +5,6 @@
       <p>Crypto</p>
     </h3>
 
-    <h3 class="company__background-title company__background-title--light">
-      <p>Formal</p>
-      <p>Crypto</p>
-    </h3>
     <div class="company__blobs">
       <div v-if="!$root.isMobile" v-draggable class="company__blob">
         <svg
@@ -70,20 +66,20 @@
     </div>
 
     <div class="container">
-      <h2>Company</h2>
+      <h2 tabindex="5">Company</h2>
       <div class="company__texts">
         <p>
-          Formal Crypto – company-developer of digital products in the field of blockchain
+          Formal Crypto – company-developer of&nbsp;digital products in the field of blockchain
           technologies
         </p>
         <p>
-          We have been involved in a wide variety of projects, including the creation of DAOs, NFT
-          collections, staking contracts, audits.
+          We have been involved in a wide variety of&nbsp;projects, including the creation of DAOs,
+          NFT collections, staking contracts, audits.
         </p>
 
         <p>
-          Having extensive experience working with a variety of customers, we can join your project
-          at any stage: from protocol design to turnkey development.
+          Having extensive experience working with a&nbsp;variety of customers, we can join your
+          project at any stage: from protocol design to&nbsp;turnkey development.
         </p>
       </div>
     </div>

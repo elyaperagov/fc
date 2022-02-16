@@ -1,14 +1,8 @@
 <template>
-  <section id="blank" class="blank">
-    <div class="blank__blobs">
-      <div v-if="!$root.isMobile" v-draggable class="blank__blob blank__blob--green">
-        <svg
-          width="545"
-          height="614"
-          viewBox="0 0 545 614"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+  <section class="blank">
+    <div class="blank__blobs" id="blank">
+      <div v-if="!$root.isMobile" id="blob-green" class="blank__blob blank__blob--green">
+        <svg viewBox="0 0 545 614" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_f_1_1747)">
             <path
               fill-rule="evenodd"
@@ -34,7 +28,7 @@
           </defs>
         </svg>
       </div>
-      <div v-else class="blank__blob blank__blob--green">
+      <div v-else id="blob-green" class="blank__blob blank__blob--green">
         <svg
           width="246"
           height="268"
@@ -62,12 +56,12 @@
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="36.5" result="effect1_foregroundBlur_9_84" />
+              <feGaussianBlur stdDeviation="28.5" result="effect1_foregroundBlur_9_84" />
             </filter>
           </defs>
         </svg>
       </div>
-      <div v-if="!$root.isMobile" v-draggable class="blank__blob blank__blob--violet">
+      <div v-if="!$root.isMobile" id="blob-violet" class="blank__blob blank__blob--violet">
         <svg
           width="459"
           height="422"
@@ -100,7 +94,7 @@
           </defs>
         </svg>
       </div>
-      <div v-else class="blank__blob blank__blob--violet">
+      <div v-else id="blob-violet" class="blank__blob blank__blob--violet">
         <svg
           width="251"
           height="229"
@@ -136,14 +130,14 @@
     </div>
     <div class="container">
       <div class="blank__texts">
-        <h1>Developing Blockchain Solutions</h1>
+        <h2>Developing Blockchain Solutions</h2>
         <p>
           We are a team of full-stack programmers and mathematicians focused on the development of
           blockchain software solutions.
         </p>
 
-        <button class="button button--contact" @click.prevent="$root.goTo('#contact')">
-          contact us
+        <button class="button button--contact" tabindex="3" @click.prevent="$root.goTo('#contact')">
+          Contact us
         </button>
       </div>
     </div>
@@ -151,51 +145,104 @@
 </template>
 
 <script>
-import { Draggable } from 'draggable-vue-directive'
-
 export default {
   name: 'Blank',
-  directives: {
-    Draggable
-  },
+
   components: {},
   props: {},
   data() {
-    return {}
+    return {
+      greenBall: '',
+      violetBall: '',
+      container: '',
+      greenBallInfo: '',
+      violetBalinfo: ''
+    }
   },
   computed: {},
-  mounted() {},
-  methods: {}
+  mounted() {
+    this.container = document.getElementById('blank')
+    this.greenBall = document.getElementById('blob-green')
+    this.violetBall = document.getElementById('blob-violet')
+
+    this.greenBallInfo = {
+      x: !this.$root.isMobile ? 800 : 200,
+      y: 200,
+      vx: 2,
+      vy: 2,
+      w: this.greenBall.getBoundingClientRect().width,
+
+      h: this.greenBall.getBoundingClientRect().height
+    }
+
+    this.violetBallInfo = {
+      x: 0,
+      y: !this.$root.isMobile ? 0 : 200,
+      vx: 2,
+      vy: 2,
+      w: this.violetBall.getBoundingClientRect().width,
+
+      h: this.violetBall.getBoundingClientRect().height
+    }
+
+    this.containerInfo = {
+      w: this.$root.width,
+      h: this.container.getBoundingClientRect().height
+    }
+    this.render()
+  },
+  methods: {
+    updatePositionInformation(info) {
+      info.x += info.vx
+      info.y -= info.vy
+    },
+
+    updatePositionnInformation(info) {
+      info.x -= info.vx
+      info.y += info.vy
+    },
+
+    translateDomElement(el, info) {
+      el.style.transform = `translate(${info.x}px, ${info.y}px)`
+    },
+
+    translateDommElement(el, info) {
+      el.style.transform = `translate(${info.x}px, ${info.y}px)`
+    },
+
+    checkXPosition(elInfo, width) {
+      return elInfo.x < 0 || elInfo.x > width - elInfo.w
+    },
+
+    checkYPosition(elInfo, containerInfo) {
+      return elInfo.y < 0 || elInfo.y > containerInfo.h - elInfo.h
+    },
+
+    boundaries(elInfo, xOut, yOut) {
+      if (xOut) elInfo.vx *= -1
+      if (yOut) elInfo.vy *= -1
+    },
+
+    render() {
+      this.updatePositionInformation(this.greenBallInfo)
+      this.updatePositionnInformation(this.violetBallInfo)
+      this.translateDomElement(this.greenBall, this.greenBallInfo)
+      this.translateDommElement(this.violetBall, this.violetBallInfo)
+      this.boundaries(
+        this.greenBallInfo,
+        this.checkXPosition(this.greenBallInfo, this.$root.width),
+        this.checkYPosition(this.greenBallInfo, this.containerInfo)
+      )
+      this.boundaries(
+        this.violetBallInfo,
+        this.checkXPosition(this.violetBallInfo, this.$root.width),
+        this.checkYPosition(this.violetBallInfo, this.containerInfo)
+      )
+
+      requestAnimationFrame(this.render)
+    }
+  }
 }
 </script>
 
-<style lang="scss" scoped>
-@for $i from 1 through 2 {
-  $a: #{($i + 1) * 90};
-  $b: #{($i + 1) * 90+360};
-
-  svg:nth-child(#{$i}) {
-    animation: move#{$i} #{($i) + 14}s infinite linear;
-    cursor: grab;
-  }
-
-  @keyframes move#{$i} {
-    from {
-      transform: rotate(#{$a}deg) translate(#{(($i + 1)) * 75}px, 0.1px) rotate(-#{$a}deg);
-    }
-    to {
-      transform: rotate(#{$b}deg) translate(#{(($i + 1)) * 75}px, 0.1px) rotate(-#{$b}deg);
-    }
-  }
-  @media (max-width: 767px) {
-    @keyframes move#{$i} {
-      from {
-        transform: rotate(#{$a}deg) translate(#{(($i + 1)) * 25}px, 0.1px) rotate(-#{$a}deg);
-      }
-      to {
-        transform: rotate(#{$b}deg) translate(#{(($i + 1)) * 25}px, 0.1px) rotate(-#{$b}deg);
-      }
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

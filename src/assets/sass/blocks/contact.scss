@@ -63,7 +63,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url('~@/assets/img/lines.svg');
-    animation: fade 10s ease infinite;
+    animation: fade 5s infinite linear;
 
     @media (max-width: $tablets-max) {
       top: 63%;

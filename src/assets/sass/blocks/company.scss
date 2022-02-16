@@ -115,7 +115,10 @@
   height: 163px;
   top: 30%;
   left: 30%;
-  transform: translate(-50%, -50%);
+
+  @media (max-width: $mobiles-max) {
+    transform: translate(0, -70%);
+  }
 }
 
 .company__texts {

@@ -2,18 +2,18 @@
   <header class="header">
     <div class="container">
       <div class="header__inner">
-        <router-link to="/" class="header__logo">
-          <svg width="233" height="70">
+        <h1 class="header__logo" tabindex="1">
+          <svg width="185" height="22">
             <use xlink:href="#logo"></use>
           </svg>
-        </router-link>
-        <ul class="header__nav">
+        </h1>
+        <!-- <ul class="header__nav">
           <li class="header__item">
-            <a class="header__link" href="#" @click.prevent="$root.goTo('#contact')">
+            <a class="header__link" tabindex="2" href="#" @click.prevent="$root.goTo('#contact')">
               contact us
             </a>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </header>

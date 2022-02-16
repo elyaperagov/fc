@@ -98,6 +98,16 @@
     &:before {
       background-color: $color-green-light;
     }
+
+    @media (max-width: $tablets-max) {
+      color: $color-black;
+      background-color: $color-green-light;
+      border: 1px solid $color-green-light;
+
+      &:before {
+        display: none;
+      }
+    }
   }
 
   &:hover {
@@ -139,6 +149,13 @@
 
   @media (max-width: $mobiles-max) {
     flex-direction: column;
+
+    &--stablecoin {
+      .projects__img {
+        width: 230px;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -183,8 +200,8 @@
 }
 
 .projects__texts {
-  width: 50%;
-  margin-right: 6%;
+  width: 49%;
+  margin-right: 7%;
 
   @media (max-width: $mobiles-max) {
     width: 100%;
