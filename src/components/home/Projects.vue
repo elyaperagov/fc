@@ -7,8 +7,8 @@
           <div
             v-for="(tab, i) in tabs"
             :key="i"
-            tabindex="7"
             ref="projects__tab"
+            tabindex="7"
             class="projects__tab-wrapper"
             :class="{ 'is-active': tab.scrolled }"
           >

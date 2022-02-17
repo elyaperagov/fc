@@ -1,6 +1,6 @@
 <template>
   <section class="blank">
-    <div class="blank__blobs" id="blank">
+    <div id="blank" class="blank__blobs">
       <div v-if="!$root.isMobile" id="blob-green" class="blank__blob blank__blob--green">
         <svg viewBox="0 0 545 614" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_f_1_1747)">
@@ -147,7 +147,6 @@
 <script>
 export default {
   name: 'Blank',
-
   components: {},
   props: {},
   data() {
@@ -171,7 +170,6 @@ export default {
       vx: 2,
       vy: 2,
       w: this.greenBall.getBoundingClientRect().width,
-
       h: this.greenBall.getBoundingClientRect().height
     }
 
@@ -181,7 +179,6 @@ export default {
       vx: 2,
       vy: 2,
       w: this.violetBall.getBoundingClientRect().width,
-
       h: this.violetBall.getBoundingClientRect().height
     }
 
@@ -189,6 +186,7 @@ export default {
       w: this.$root.width,
       h: this.container.getBoundingClientRect().height
     }
+
     this.render()
   },
   methods: {
@@ -244,5 +242,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

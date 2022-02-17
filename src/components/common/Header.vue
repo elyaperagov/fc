@@ -7,7 +7,7 @@
             <use xlink:href="#logo"></use>
           </svg>
         </h1>
-        <ul class="header__nav" v-if="$root.isMobile">
+        <ul v-if="$root.isMobile" class="header__nav">
           <li class="header__item">
             <a class="header__link" tabindex="2" href="#" @click.prevent="$root.goTo('#contact')">
               contact us

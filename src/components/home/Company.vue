@@ -6,7 +6,7 @@
     </h3>
 
     <div class="company__blobs">
-      <div v-if="!$root.isMobile" v-draggable class="company__blob">
+      <div v-if="!$root.isMobile" class="company__blob">
         <svg
           width="419"
           height="419"
@@ -87,13 +87,8 @@
 </template>
 
 <script>
-import { Draggable } from 'draggable-vue-directive'
-
 export default {
   name: 'Company',
-  directives: {
-    Draggable
-  },
   methods: {}
 }
 </script>
