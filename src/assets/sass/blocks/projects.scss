@@ -157,6 +157,16 @@
       }
     }
   }
+
+  @media (max-width: $mobiles) {
+    &--stablecoin {
+      .projects__img-wrapper {
+        &:after {
+          right: 20%;
+        }
+      }
+    }
+  }
 }
 
 .projects__subtitle {
